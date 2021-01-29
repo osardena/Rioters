@@ -1,1 +1,1 @@
-#echo Valoranked
+Valoranked
