@@ -1,4 +1,4 @@
-<h2>Valoranked</h2>
+<h2>Rioters</h2>
 <ul>Group Members
         <li>Mathew Leriche</li>
         <li>Omar Sardena</li>
