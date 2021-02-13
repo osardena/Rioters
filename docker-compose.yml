@@ -1,12 +1,29 @@
 version: "3"
 services:
   #frontend:
-  messsaging:
+  messaging:
     image: rabbitmq:3-management
     environment: #should reference the .env file in this folder
       - RABBITMQ_DEFAULT_USER=${USER} #user and pass should be TEST for milestone 1
       - RABBITMQ_DEFAULT_PASS=${PASS}
     ports:
       - 15672:15672
-  #back-end:
-  #db:
+  backend:
+      build: ./backend
+      environment:
+        - RABBITMQ_DEFAULT_USER=${USER}
+        - RABBITMQ_DEFAULT_PASS=${PASS}   
+  db:
+    image: mysql:latest
+    expose:
+      - "4407"
+    volumes: #going to use a named volume for now, if it doesn't work we will manually create volumes in a new folder within the db folder
+      - ./db/db-data:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: Jhin
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    
+#volumes: #need to list named volumes used by containers on the same level as services
+ # db-data:
