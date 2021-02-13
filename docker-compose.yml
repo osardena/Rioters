@@ -9,14 +9,4 @@ services:
     ports:
       - 15672:15672
   #back-end:
-  db:
-    image: mysql:latest
-    expose:
-      - "4407"
-    volumes:
-      - ./db/db-data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: test
-      MYSQL_DATABASE: Jhin
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
+  #db:
